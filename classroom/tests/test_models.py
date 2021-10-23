@@ -20,21 +20,21 @@ def test_student_str_return(student_model):
 
 
 def test_grade_fail(student_model):
-    student_model.average_score = random.randint(0, 40)
+    student_model.average_score = random.randint(0, 39)
     student_model.save()
     student = Student.objects.last()
     assert student.get_grade() == "Fail"
 
 
 def test_grade_pass(student_model):
-    student_model.average_score = random.randint(40, 75)
+    student_model.average_score = random.randint(40, 74)
     student_model.save()
     student = Student.objects.last()
     assert student.get_grade() == "Pass"
 
 
 def test_grade_excellent(student_model):
-    student_model.average_score = random.randint(75, 101)
+    student_model.average_score = random.randint(75, 100)
     student_model.save()
     student = Student.objects.last()
     assert student.get_grade() == "Excellent"

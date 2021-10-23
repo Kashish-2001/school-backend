@@ -3,13 +3,13 @@ from .models import Student, Classroom
 from .serializers import StudentSerializer, ClassroomSerializer
 
 
-class StudentCreateAPIView(CreateAPIView):
+class StudentListAPIView(ListAPIView):
     serializer_class = StudentSerializer
     model = Student
     queryset = Student.objects.all()
 
 
-class StudentListAPIView(ListAPIView):
+class StudentCreateAPIView(CreateAPIView):
     serializer_class = StudentSerializer
     model = Student
     queryset = Student.objects.all()
